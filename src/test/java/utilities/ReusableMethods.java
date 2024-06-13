@@ -1,5 +1,7 @@
 package utilities;
 
+import com.mysql.cj.x.protobuf.MysqlxCrud;
+
 import java.sql.*;
 
 public class ReusableMethods {
@@ -40,6 +42,18 @@ public class ReusableMethods {
             System.out.println(e.getMessage());
         }
         return (resultSet);
+    }
+
+    public static int update (String query){
+
+        int effectedRow=0;
+
+        try {
+            effectedRow = statement.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return (effectedRow);
     }
 
 }
