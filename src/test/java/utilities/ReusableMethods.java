@@ -56,4 +56,19 @@ public class ReusableMethods {
         return (effectedRow);
     }
 
+    public static void  closeConnection() {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
