@@ -33,4 +33,29 @@ public class StepDefinition {
 		ReusableMethods.closeConnection();
 	}
 
+
+
+	@Given("query02 hazirlanir ve calistirilir")
+	public void query02_hazirlanir_ve_calistirilir() {
+
+		ReusableMethods.getStatement();
+		ReusableMethods.getResultSet(QueryManage.SELECTQUERY02);
+
+
+
+	}
+	@Given("query02 icin donen sonuclar islenir")
+	public void query02_icin_donen_sonuclar_islenir() throws SQLException {
+
+		String expectedResult="1xUgfVUD1Ggx5CVz7mxLvcye8RXRbeFqSktSIkhya321TqDkLOsqhys4pnJv";
+		ReusableMethods.resultSet.next();
+		String actualResult=ReusableMethods.resultSet.getString("remember_token");
+
+		Assert.assertEquals(expectedResult,actualResult);
+
+
+
+
+	}
+
 }

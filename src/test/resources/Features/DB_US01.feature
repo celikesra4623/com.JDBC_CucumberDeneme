@@ -8,3 +8,8 @@ Feature: Select Query Execution
     * query01 hazirlanir ve calistirilir
     * query01 icin donen sonuclar islenir
     * database baglantisi kapatilir
+
+
+
+
+
