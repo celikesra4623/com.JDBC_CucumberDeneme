@@ -9,23 +9,8 @@ public class ReusableMethods {
 
     public static Statement statement;
 
+    public static ResultSet resultSet;
 
-    public static void main(String[] args) throws SQLException {
-        //Connection
-        Connection connection = DriverManager.getConnection(ConfigReader.getProperty("URL"),
-                ConfigReader.getProperty("USERNAME"),
-                ConfigReader.getProperty("PASSWORD"));
-
-        //Statement + SQL QUERY
-
-        Statement statement = connection.createStatement();
-
-        String SQL = "";
-
-        ResultSet resultSet = statement.executeQuery(SQL);
-
-
-    }
 
     public static Connection getConnection() {
         try {
@@ -46,4 +31,15 @@ public class ReusableMethods {
         }
         return (statement);
     }
+
+    public static ResultSet getResultSet(String query) {
+
+        try {
+            resultSet = statement.executeQuery(query);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return (resultSet);
+    }
+
 }
